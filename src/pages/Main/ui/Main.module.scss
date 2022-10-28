@@ -1,0 +1,36 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10em;
+    overflow-y: scroll;
+    padding: 4.16666667em;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+      
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bg-color-primary);
+        border-radius: 5px;
+    }
+    
+}
+
+.title {
+    margin-bottom: 0.61538462em;
+}
+
+.text {
+    margin-bottom: 0.8333333em;
+}
+
+.paragraph {
+    &:not(:last-child) {
+        margin-bottom: 1em;
+    }
+}

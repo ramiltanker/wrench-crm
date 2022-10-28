@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    background-color: var(--bg-color-primary);
+    top: 0;
+}
+
+.headerWrapper {
+    padding: 2.0833333em 4.16666em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.userText {
+    margin-left: 0.8em;
+}

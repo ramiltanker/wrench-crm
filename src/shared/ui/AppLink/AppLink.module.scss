@@ -1,0 +1,14 @@
+.appLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    .black {
+        color: var(--color-primary);
+    }
+
+    .white {
+        color: var(--color-secondary);
+    }
+}

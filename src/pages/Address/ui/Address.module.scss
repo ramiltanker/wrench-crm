@@ -1,0 +1,29 @@
+.address {
+    width: 100%;
+    padding: 4.16666667em;
+    overflow-y: scroll;
+    padding-bottom: 15em;
+    height: 100%;
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+      
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bg-color-primary);
+        border-radius: 5px;
+    }
+}
+
+.title {
+    margin-bottom: 0.61538462em;
+}
+
+.text {
+    margin-bottom: 0.8333333em;
+}
+

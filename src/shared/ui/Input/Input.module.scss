@@ -1,0 +1,18 @@
+.input, .clear {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--input-color);
+
+    &::placeholder {
+        color: var(--color-placeholder);
+    }
+}
+
+.outline_purple {
+    border-color: var(--color-purple);
+    border-style: solid;
+}

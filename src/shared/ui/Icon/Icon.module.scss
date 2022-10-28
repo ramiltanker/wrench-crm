@@ -1,0 +1,19 @@
+.icon {
+    & svg {
+        object-fit: cover;
+    }
+}
+
+.size_s {
+    & svg {
+        width: 4.16666666em;
+        height: 4.16666666em;
+    }
+}
+
+.size_m {
+    & svg {
+        width: 6.25em;
+        height: 6.25em;
+    }
+}
