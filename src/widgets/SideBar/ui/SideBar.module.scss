@@ -7,10 +7,7 @@
     background: rgb(255 255 255 / 5%);
     box-shadow: 0 0 5px rgb(2 0 96 / 25%);
     padding: 3.125em 2.60416667em 3.125em 4.1666666666em;
-}
-
-.navigation {
-    width: 100%;
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
         width: 6px;
@@ -24,6 +21,11 @@
         background-color: var(--bg-color-primary);
         border-radius: 5px;
     }
+}
+
+.navigation {
+    width: 100%;
+    padding-bottom: 10em;
 }
 
 .list {
