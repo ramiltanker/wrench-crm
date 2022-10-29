@@ -103,9 +103,9 @@ export interface Suggestion {
 }
 
 export interface AddressSchema {
-  suggestions?: { suggestions: Suggestion[] };
-  addressQuery?: string;
-  isLoading?: boolean;
-  error?: string;
+  suggestions: { suggestions: Suggestion[] };
+  addressQuery: string;
+  isLoading: boolean;
+  error: string;
   isSuggestionEmpty?: boolean;
 }

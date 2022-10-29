@@ -13,8 +13,6 @@ interface SideBarProps {
   className?: string;
 }
 
-const ANIMATION_DELAY = 300;
-
 const SideBar: FC<SideBarProps> = ({ className }) => {
   const [isSubRoutesOpen, setIsSubRoutesOpen] = useState(false);
 
