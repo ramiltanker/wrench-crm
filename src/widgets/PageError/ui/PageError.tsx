@@ -1,20 +1,18 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './PageError.module.scss';
 import classNames from 'classnames';
 import { Button } from 'shared/ui/Button/Button';
 import { Text, TextColor, TextSize } from 'shared/ui/Text/Text';
 
-interface PageErrorProps {
-  className?: string;
-}
+interface PageErrorProps {}
 
-const PageError: FC<PageErrorProps> = ({ className }) => {
+const PageError = memo((props: PageErrorProps) => {
   const reloadPage = () => {
     location.reload();
   };
 
   return (
-    <div className={classNames(styles.pageError, {}, [className])}>
+    <div className={classNames('')}>
       <Text size={TextSize.SIZE_M} color={TextColor.BLACK}>
         Произошла непредвиденная ошибка
       </Text>
@@ -25,6 +23,6 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
       </Button>
     </div>
   );
-};
+});
 
 export { PageError };

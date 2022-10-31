@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Text.module.scss';
 import classNames from 'classnames';
 
@@ -28,20 +28,22 @@ interface TextProps {
   weight?: TextWeight;
 }
 
-const Text: FC<TextProps> = ({
-  className,
-  children,
-  size = TextSize.SIZE_S,
-  color = TextColor.WHITE,
-  weight = TextWeight.WEIGHT_500
-}) => {
-  const mods = {
-    [styles[size]]: true,
-    [styles[color]]: true,
-    [styles[weight]]: true
-  };
+const Text = memo(
+  ({
+    className,
+    children,
+    size = TextSize.SIZE_S,
+    color = TextColor.WHITE,
+    weight = TextWeight.WEIGHT_500
+  }: TextProps) => {
+    const mods = {
+      [styles[size]]: true,
+      [styles[color]]: true,
+      [styles[weight]]: true
+    };
 
-  return <p className={classNames(styles.text, mods, [className])}>{children}</p>;
-};
+    return <p className={classNames(styles.text, mods, [className])}>{children}</p>;
+  }
+);
 
 export { Text };

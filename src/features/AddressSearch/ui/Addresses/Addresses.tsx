@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo, useMemo } from 'react';
 import styles from './Addresses.module.scss';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
@@ -11,10 +11,24 @@ interface AddressesProps {
   className?: string;
 }
 
-const Addresses: FC<AddressesProps> = ({ className }) => {
+const Addresses = memo(({ className }: AddressesProps) => {
   const suggestions = useSelector(getAddressSuggestions);
   const isLoading = useSelector(getAddressIsLoading);
   const isSuggestionsEmpty = useSelector(getAddressIsSuggestionsEmpty);
+
+  const addresses = useMemo(() => {
+    return (
+      <ul className={styles.list}>
+        {suggestions.map((item, index) => {
+          return (
+            <li className={styles.li} key={item.value}>
+              <Text color={TextColor.BLACK}>{item.value}</Text>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }, [suggestions]);
 
   return (
     <>
@@ -36,15 +50,7 @@ const Addresses: FC<AddressesProps> = ({ className }) => {
                 <Text size={TextSize.SIZE_M} weight={TextWeight.WEIGHT_700} color={TextColor.BLACK} className={styles.text}>
                   Адреса
                 </Text>
-                <ul className={styles.list}>
-                  {suggestions.map((item, index) => {
-                    return (
-                      <li className={styles.li} key={item.value}>
-                        <Text color={TextColor.BLACK}>{item.value}</Text>
-                      </li>
-                    );
-                  })}
-                </ul>
+                {addresses}
               </div>
               )
             : (
@@ -52,6 +58,6 @@ const Addresses: FC<AddressesProps> = ({ className }) => {
               )}
     </>
   );
-};
+});
 
 export { Addresses };

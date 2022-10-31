@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Main.module.scss';
 import classNames from 'classnames';
 import { Title, TitleColor, TitleSize, TitleWeight } from 'shared/ui/Title/Title';
@@ -9,7 +9,7 @@ interface MainProps {
   className?: string;
 }
 
-const Main: FC<MainProps> = ({ className }) => {
+const Main = memo(({ className }: MainProps) => {
   return (
     <div className={classNames(styles.main, {}, [className])}>
       <Title color={TitleColor.BLACK} weight={TitleWeight.WEIGHT_700} size={TitleSize.SIZE_M} className={styles.title}>
@@ -96,6 +96,6 @@ const Main: FC<MainProps> = ({ className }) => {
       </Text>
     </div>
   );
-};
+});
 
 export default Main;

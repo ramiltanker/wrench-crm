@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Header.module.scss';
 import classNames from 'classnames';
 import { Logo } from 'shared/ui/Logo/Logo';
@@ -8,7 +8,7 @@ import { Text, TextColor, TextWeight } from 'shared/ui/Text/Text';
 
 interface HeaderProps {}
 
-const Header: FC<HeaderProps> = () => {
+const Header: FC<HeaderProps> = memo(() => {
   return (
     <header className={classNames(styles.header, {}, [])}>
       <div className={classNames(styles.headerWrapper)}>
@@ -24,6 +24,6 @@ const Header: FC<HeaderProps> = () => {
       </div>
     </header>
   );
-};
+});
 
 export { Header };

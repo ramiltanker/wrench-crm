@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, FC } from 'react';
+import { AnchorHTMLAttributes, FC, memo } from 'react';
 import styles from './Link.module.scss';
 import classNames from 'classnames';
 
@@ -22,7 +22,7 @@ interface LinkProps extends HTMLLinkProps {
   weight?: TextWeight;
 }
 
-const Link: FC<LinkProps> = ({ className, children, size, weight = TextWeight.WEIGHT_500, ...otherProps }) => {
+const Link = memo(({ className, children, size, weight = TextWeight.WEIGHT_500, ...otherProps }: LinkProps) => {
   const mods = {
     [styles[size]]: true,
     [styles[weight]]: true
@@ -33,6 +33,6 @@ const Link: FC<LinkProps> = ({ className, children, size, weight = TextWeight.WE
       {children}
     </a>
   );
-};
+});
 
 export { Link };

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Title.module.scss';
 import classNames from 'classnames';
 
@@ -26,20 +26,22 @@ interface TitleProps {
   weight?: TitleWeight;
 }
 
-const Title: FC<TitleProps> = ({
-  className,
-  children,
-  size = TitleSize.SIZE_S,
-  color = TitleColor.WHITE,
-  weight = TitleWeight.WEIGHT_500
-}) => {
-  const mods = {
-    [styles[size]]: true,
-    [styles[color]]: true,
-    [styles[weight]]: true
-  };
+const Title = memo(
+  ({
+    className,
+    children,
+    size = TitleSize.SIZE_S,
+    color = TitleColor.WHITE,
+    weight = TitleWeight.WEIGHT_500
+  }: TitleProps) => {
+    const mods = {
+      [styles[size]]: true,
+      [styles[color]]: true,
+      [styles[weight]]: true
+    };
 
-  return <h2 className={classNames(styles.title, mods, [className])}>{children}</h2>;
-};
+    return <h2 className={classNames(styles.title, mods, [className])}>{children}</h2>;
+  }
+);
 
 export { Title };

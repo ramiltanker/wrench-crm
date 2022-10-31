@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
 import styles from './SideBar.module.scss';
 import classNames from 'classnames';
 import { routes } from 'shared/constants/routes/routes';
@@ -13,12 +13,12 @@ interface SideBarProps {
   className?: string;
 }
 
-const SideBar: FC<SideBarProps> = ({ className }) => {
+const SideBar = memo(({ className }: SideBarProps) => {
   const [isSubRoutesOpen, setIsSubRoutesOpen] = useState(false);
 
-  const handleToggleSubRoutes = () => {
+  const handleToggleSubRoutes = useCallback(() => {
     setIsSubRoutesOpen((state) => !state);
-  };
+  }, []);
 
   return (
     <div data-testid="sidebar" className={classNames(styles.sideBar, {}, [className])}>
@@ -87,6 +87,6 @@ const SideBar: FC<SideBarProps> = ({ className }) => {
       </nav>
     </div>
   );
-};
+});
 
 export { SideBar };

@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes, memo } from 'react';
 import styles from './Input.module.scss';
 import classNames from 'classnames';
 
@@ -16,7 +16,7 @@ interface InputProps extends HTMLInputProps {
   theme?: InputThemes;
 }
 
-const Input: FC<InputProps> = ({ className, value, onChange, theme = InputThemes.CLEAR, ...otherProps }) => {
+const Input = memo(({ className, value, onChange, theme = InputThemes.CLEAR, ...otherProps }: InputProps) => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -34,6 +34,6 @@ const Input: FC<InputProps> = ({ className, value, onChange, theme = InputThemes
       className={classNames(styles.input, mods, [className])}
     ></input>
   );
-};
+});
 
 export { Input };

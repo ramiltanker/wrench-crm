@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Address.module.scss';
 import classNames from 'classnames';
 import { AddressComponentAsync } from 'features/AddressSearch';
@@ -9,7 +9,7 @@ interface AddressProps {
   className?: string;
 }
 
-const Address: FC<AddressProps> = ({ className }) => {
+const Address = memo(({ className }: AddressProps) => {
   return (
     <div className={classNames(styles.address, {}, [className])}>
       <Title color={TitleColor.BLACK} weight={TitleWeight.WEIGHT_700} size={TitleSize.SIZE_M} className={styles.title}>
@@ -21,6 +21,6 @@ const Address: FC<AddressProps> = ({ className }) => {
       <AddressComponentAsync />
     </div>
   );
-};
+});
 
 export default Address;

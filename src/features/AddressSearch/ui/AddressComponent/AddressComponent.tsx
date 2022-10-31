@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Addresses } from '../Addresses/Addresses';
 import { AddressForm } from '../AddressForm/AddressForm';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -10,13 +10,13 @@ const initialReducers: ReducersList = {
   address: addressReducer
 };
 
-const AddressComponent: FC<AddressComponentProps> = () => {
+const AddressComponent = memo((props: AddressComponentProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <AddressForm />
       <Addresses />
     </DynamicModuleLoader>
   );
-};
+});
 
 export default AddressComponent;

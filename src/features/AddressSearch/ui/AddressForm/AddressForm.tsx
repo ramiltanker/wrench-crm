@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState, memo } from 'react';
 import styles from './AddressForm.module.scss';
 import classNames from 'classnames';
 import { Input, InputThemes } from 'shared/ui/Input/Input';
@@ -24,7 +24,7 @@ interface AddressFormProps {
   className?: string;
 }
 
-const AddressForm: FC<AddressFormProps> = ({ className }) => {
+const AddressForm = memo(({ className }: AddressFormProps) => {
   const addressQuery = useSelector(getAddressQuery);
   const dispatch = useDispatch();
   const [formIsValid, setFormIsValid] = useState(false);
@@ -89,6 +89,6 @@ const AddressForm: FC<AddressFormProps> = ({ className }) => {
       )}
     </form>
   );
-};
+});
 
 export { AddressForm };

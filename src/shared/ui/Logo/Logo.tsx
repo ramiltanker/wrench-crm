@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import styles from './Logo.module.scss';
 import classNames from 'classnames';
 import LogoIcon from 'shared/assets/icons/logo.svg';
@@ -9,7 +9,7 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo: FC<LogoProps> = ({ className }) => {
+const Logo = memo(({ className }: LogoProps) => {
   return (
     <div className={classNames(styles.logo, {}, [className])}>
       <Icon size={IconSize.SIZE_M}>
@@ -20,6 +20,6 @@ const Logo: FC<LogoProps> = ({ className }) => {
       </Text>
     </div>
   );
-};
+});
 
 export { Logo };
